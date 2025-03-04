@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 body {
-    font-family: 'Roboto' sans-serif;
+    font-family: 'Roboto', sans-serif;
     background-color: #001e4d;
 }
 .container {
@@ -31,12 +31,11 @@ body {
     box-shadow: 0 0 10px  #aca2a2;
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
-    gap: 360px;
+    gap: 300px;
 }
 .header p{
     font-size: 22px;
     font-weight: 500;
-    font-family: "Roboto", sans-serif; 
     text-shadow: 0 0 10px #5d5c5c;       
 }
 .main p {
@@ -50,21 +49,53 @@ body {
 .main .answers {
     display: grid;
     justify-content: start;
-    align-items: center;
+    align-items: start;
     padding-left: 45px;
     padding-top: 40px;
     gap: 20px;
-}
+}   
 .answers .btn {
-    align-items: center;
+    justify-content: start;
+    text-align: left;
+    padding-left: 30px;
+    font-size: 18px;
     width: 500px;
     height: 40px;
     background-color: #d6d6d6;
     border: 1px solid black;
     border-radius: 6px;
+    border: none;
     cursor: pointer;
+    box-shadow: 0 0 8px #aca2a2;
 }
 .answers .btn:hover {
     transform: scale(1.03);
-    transition: 2s ease-in-out;
+    transition: 0.5s ease-in-out;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    margin-top: 35px;
+    background-color: #d6d6d6;
+    gap: 20px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+.next {
+    font-size: 18px;
+    font-weight: 600;
+    text-shadow: 0 0 15px #5d5c5c;
+    padding: 6px;
+    border-radius: 6px;
+    outline: none;
+    border: none;
+    box-shadow: 0 0 8px #aca2a2;
+    cursor: pointer;
+}
+.next:hover {
+    transform: scale(1.03);
+    transition: 0.5s ease-in-out;
 }
