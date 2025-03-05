@@ -102,3 +102,34 @@ const questions = [
 ];
 
 
+const score = 0; // increment each correct answer
+const timer = document.getElementById("timer");
+const count = document.querySelector("#count")
+const number = document.querySelector("#number");
+const question = document.getElementById("question");
+const nextBtn = document.querySelector(".next");
+
+nextBtn.addEventListener("click", () => {
+    if(questions[2].number === "3.") {
+        count.textContent = "3/10";
+    }
+    question.innerHTML = `${questions[2].number} ${questions[2].question}`;
+})
+
+function startQuiz() {
+
+}
+
+
+
+function changeQuestion() {
+    
+}
+
+function changeAnswers() {
+
+}
+
+function checkAnswer () {
+
+}
