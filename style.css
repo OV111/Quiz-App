@@ -83,6 +83,7 @@ body {
     gap: 20px;
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
+    box-shadow: 0 0 10px  #aca2a2;
 }
 .next {
     font-size: 18px;
