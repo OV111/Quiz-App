@@ -1,6 +1,6 @@
 const questions = [
     {   
-        number: "1.",
+        number: "1",
         question: "Question Which data structure follows the First In, First Out (FIFO) principle?",
         answers: [
             {text:"Stack",correct: true},
@@ -10,7 +10,7 @@ const questions = [
         ],
     },
     {        
-        number:"2.",
+        number: "2",
         question: "Which programming language is primarily used for building websites?",
         answers: [
             {text: "Python", correct: false},
@@ -20,7 +20,7 @@ const questions = [
         ],
     },
     {
-        number: "3.",
+        number: "3",
         question:  "Which programming paradigm emphasizes immutability and the use of pure functions?",
         answers: [
             {text: "Object-Oriented Programming",correct:false},               
@@ -30,7 +30,7 @@ const questions = [
         ],
     },
     {
-        number: "4.",
+        number: "4",
         question:  "In Git, what command is used to create a new branch and switch to it?",
         answers: [
             {text: "git branch <branch_name>",correct:false},               
@@ -40,7 +40,7 @@ const questions = [
         ],
     },
     {
-        number: "5.",
+        number: "5",
         question: "What is the time complexity of inserting an element at the end of a dynamic array (e.g., Python list)?",
         answers: [
             { text: "O(1)", correct: true },
@@ -50,7 +50,7 @@ const questions = [
         ]
     },
     {
-        number: "6.",
+        number: "6",
         question: "In Git, what command is used to view the commit history?",
         answers: [
             { text: "git log", correct: true },
@@ -60,7 +60,7 @@ const questions = [
         ]
     },
     {
-        number: "7.",
+        number: "7",
         question: "In Python, which keyword is used to define a function?",
         answers: [
             { text: "func", correct: false },
@@ -70,7 +70,7 @@ const questions = [
         ]
     },
     {
-        number: "8.",
+        number: "8",
         question: "Which of the following is NOT a valid HTTP method?",
         answers: [
             { text: "GET", correct: false },
@@ -80,7 +80,7 @@ const questions = [
         ]
     },
     {
-        number: "9.",
+        number: "9",
         question: "What is the purpose of the 'this' keyword in JavaScript?",
         answers: [
             { text: "It refers to the current function.", correct: false },
@@ -90,7 +90,7 @@ const questions = [
         ]
     },
     {
-        number: "10.",
+        number: "10",
         question: "What is the purpose of the 'finally' block in a try-except-finally statement in Python?",
         answers: [
             { text: "To handle exceptions that occur in the try block.", correct: false },
@@ -101,35 +101,44 @@ const questions = [
     },
 ];
 
-
 const score = 0; // increment each correct answer
+const count = document.querySelector("#count");
 const timer = document.getElementById("timer");
-const count = document.querySelector("#count")
-const number = document.querySelector("#number");
 const question = document.getElementById("question");
 const nextBtn = document.querySelector(".next");
 
-nextBtn.addEventListener("click", () => {
-    if(questions[2].number === "3.") {
-        count.textContent = "3/10";
-    }
-    question.innerHTML = `${questions[2].number} ${questions[2].question}`;
-})
+const answers = document.querySelectorAll(".answers .btn");
 
 function startQuiz() {
-
+    // changeQuestion();
 }
+nextBtn.addEventListener("click", () => {
+    changeQuestion();
+})
 
 
-
+let x = 1;
 function changeQuestion() {
-    
-}
-
-function changeAnswers() {
-
+    if(x < questions.length) {
+        question.innerHTML =  `${questions[x].number}. ${questions[x].question}`;
+        answers.forEach((button,i) => {
+            button.innerHTML = questions[x].answers[i].text;
+        });
+        ++x;  
+        count.innerHTML = `${x}/10`;
+    } else {
+         endQuiz();  //! define function 
+    }
 }
 
 function checkAnswer () {
 
 }
+
+function endQuiz() {
+    if(x === 10) {
+        alert("Vahe Love Mariam")
+    }
+}
+
+startQuiz();
