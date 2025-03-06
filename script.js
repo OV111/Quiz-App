@@ -1,7 +1,7 @@
 const questions = [
     {   
         number: "1",
-        question: "Question Which data structure follows the First In, First Out (FIFO) principle?",
+        question: "Which data structure follows the First In, First Out (FIFO) principle?",
         answers: [
             {text:"Stack",correct: true},
             {text:"Queue",correct: false},
@@ -114,30 +114,33 @@ function startQuiz() {
 }
 nextBtn.addEventListener("click", () => {
     changeQuestion();
+    checkAnswer();
 })
 
 
 let x = 1;
 function changeQuestion() {
     if(x < questions.length) {
-        question.innerHTML =  `${questions[x].number}. ${questions[x].question}`;
+        question.innerHTML = `${questions[x].number}.${questions[x].question}`;
         answers.forEach((button,i) => {
             button.innerHTML = questions[x].answers[i].text;
         });
+        console.log(answers)
         ++x;  
         count.innerHTML = `${x}/10`;
     } else {
          endQuiz();  //! define function 
     }
 }
-
+let y 
 function checkAnswer () {
-
+    const correctAnswer = questions[x].answers.find(answer => answer.correct);
+    const selectedAnswer = 
 }
 
 function endQuiz() {
     if(x === 10) {
-        alert("Vahe Love Mariam")
+        alert("")
     }
 }
 
