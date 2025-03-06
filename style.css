@@ -9,7 +9,7 @@ body {
 }
 .container {
     width: 600px;
-    height: 500px;
+    height: 450px;
     outline: none;
     border: 0px solid #fff;
     border-radius: 8px;
@@ -39,11 +39,11 @@ body {
     text-shadow: 0 0 10px #5d5c5c;       
 }
 .main p {
+    width: 55   0px;
     font-size: 20px;
     font-weight: 500;
     font-family: "Roboto", sans-serif;
-    padding-left: 20px;
-    padding-top: 20px;
+    padding: 20px 20px 10px 20px;
     text-shadow: 0 0 10px #5d5c5c;
 }
 .main .answers {
@@ -99,3 +99,5 @@ body {
     transform: scale(1.03);
     transition: 0.5s ease-in-out;
 }
+
+/* ! Think about opening container */
