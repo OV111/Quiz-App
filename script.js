@@ -135,6 +135,7 @@ function changeQuestion() {
         ++q;
         ++c;
     } else {
+        finish()
         endQuiz();  //! define function 
     }
 }
@@ -150,11 +151,9 @@ function checkAnswer (button,answer) {
         // wrong
         button.style.backgroundColor = "red";
     }
-
     answers.forEach((btn) => {
-        btn.disabled = true
+        btn.disabled = true;
     })
-    console.log(score)
 }   
 
 
@@ -162,12 +161,12 @@ function checkAnswer (button,answer) {
 
 
 function endQuiz() {
-    if(q < 10) {
+    if(q === 10) {
         alert("No Way");
     }
 }
-
 function finish() {
-    
+    console.log(score)
+
 }
 startQuiz();
