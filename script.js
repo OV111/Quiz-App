@@ -127,7 +127,8 @@ function changeQuestion() {
         answers.forEach((button,i) => {
             button.innerHTML = currentQuestion.answers[i].text;
             button.style.backgroundColor = "";
-            button.onclick = () => checkAnswer(button,currentQuestion.answers[i]);
+            button.disabled = false;
+            button.onclick = () => checkAnswer(button,currentQuestion.answers[i]); //!111111111111111
         });
 
         count.innerHTML = `${c}/10`;
@@ -144,11 +145,15 @@ function checkAnswer (button,answer) {
     if(answer.correct) {
         button.style.backgroundColor = "green";
         score++;
-        console.log(button)
+        
     } else {
         // wrong
         button.style.backgroundColor = "red";
     }
+
+    answers.forEach((btn) => {
+        btn.disabled = true
+    })
     console.log(score)
 }   
 
@@ -162,4 +167,7 @@ function endQuiz() {
     }
 }
 
+function finish() {
+    
+}
 startQuiz();
