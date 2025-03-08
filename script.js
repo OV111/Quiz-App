@@ -101,7 +101,7 @@ const questions = [
     },
 ];
 
-const score = 0; // increment each correct answer
+let score = 0; // increment each correct answer
 const count = document.querySelector("#count");
 const timer = document.getElementById("timer");
 const question = document.getElementById("question");
@@ -126,6 +126,7 @@ function changeQuestion() {
         
         answers.forEach((button,i) => {
             button.innerHTML = currentQuestion.answers[i].text;
+            button.style.backgroundColor = "";
             button.onclick = () => checkAnswer(button,currentQuestion.answers[i]);
         });
 
@@ -141,12 +142,15 @@ let choosedAnswer;
 function checkAnswer (button,answer) {
     // const correctAnswer = questions[q].answers.find(answer => answer.correct);
     if(answer.correct) {
+        button.style.backgroundColor = "green";
         score++;
+        console.log(button)
     } else {
         // wrong
+        button.style.backgroundColor = "red";
     }
-
-}
+    console.log(score)
+}   
 
 
 
