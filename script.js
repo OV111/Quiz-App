@@ -8,6 +8,7 @@ const questions = [
             {text:"Linked List",correct: false},
             {text:"Hash Table",correct: false},
         ],
+        chosenAnswer: null,
     },
     {        
         number: "2",
@@ -18,6 +19,7 @@ const questions = [
             {text: "C++",correct: false},
             {text: "Java",correct: false},
         ],
+        chosenAnswer: null,
     },
     {
         number: "3",
@@ -28,6 +30,7 @@ const questions = [
             {text: "Procedural Programming",correct:false},
             {text: "Imperative Programming",correct:false},
         ],
+        chosenAnswer: null,
     },
     {
         number: "4",
@@ -38,6 +41,7 @@ const questions = [
             {text: "git switch branch_name",correct:false},
             {text: "git checkout -b branch_name",correct:true},
         ],
+        chosenAnswer: null,
     },
     {
         number: "5",
@@ -47,7 +51,8 @@ const questions = [
             { text: "O(n)", correct: false },
             { text: "O(log n)", correct: false },
             { text: "O(n^2)", correct: false },
-        ]
+        ],
+        chosenAnswer: null,
     },
     {
         number: "6",
@@ -57,7 +62,8 @@ const questions = [
             { text: "git history", correct: false },
             { text: "git commits", correct: false },
             { text: "git show", correct: false },
-        ]
+        ],
+        chosenAnswer: null,
     },
     {
         number: "7",
@@ -67,7 +73,8 @@ const questions = [
             { text: "define", correct: false },
             { text: "def", correct: true },
             { text: "function", correct: false }
-        ]
+        ],
+        chosenAnswer: null,
     },
     {
         number: "8",
@@ -77,7 +84,8 @@ const questions = [
             { text: "POST", correct: false },
             { text: "FETCH", correct: true },
             { text: "DELETE", correct: false },
-        ]
+        ],
+        chosenAnswer: null,
     },
     {
         number: "9",
@@ -87,7 +95,8 @@ const questions = [
             { text: "It refers to the global object.", correct: false },
             { text: "It refers to the object that owns the executing code.", correct: true },
             { text: "It refers to the parent function.", correct: false },
-        ]
+        ],
+        chosenAnswer: null,
     },
     {
         number: "10",
@@ -97,7 +106,8 @@ const questions = [
             { text: "To execute code regardless of whether an exception occurs.", correct: true },
             { text: "To define a block of code that should never raise an exception.", correct: false },
             { text: "To replace the try block if an exception occurs.", correct: false },
-        ]
+        ],
+        chosenAnswer: null,
     },
 ];
 
@@ -111,17 +121,21 @@ const nextBtn = document.querySelector(".next");
 
 const answers = document.querySelectorAll(".answers .btn");
 
-function startQuiz() {
-    // changeQuestion();
-}
+// function startQuiz() {
+//     // changeQuestion();
+// }
+
+
 nextBtn.addEventListener("click", () => {
     // if(answers.onclick() ){
         changeQuestion();
     // }    
 })
 previousBtn.addEventListener("click",() => {
-    previousQuestion()
+    previousQuestion();
 })
+
+
 
 
 let q = 0;
@@ -134,7 +148,12 @@ function changeQuestion() {
         answers.forEach((button,i) => {
             button.innerHTML = currentQuestion.answers[i].text;
             button.style.backgroundColor = "";
-            button.disabled = false;
+
+            if(currentQuestion.chosenAnswer !== null) {
+
+                button.disabled = true;
+                if()
+            }
             
             button.onclick = () => checkAnswer(button,currentQuestion.answers[i]); //!111111111111111
         });
@@ -148,9 +167,12 @@ function changeQuestion() {
     }
 }
 
-let choosedAnswer;
+
+
 function checkAnswer (button,answer) {
     // const correctAnswer = questions[q].answers.find(answer => answer.correct);
+    chosenAnswer = answer;
+    console.log(chosenAnswer)
     if(answer.correct) {
         button.style.backgroundColor = "green";
         score++;
@@ -163,6 +185,8 @@ function checkAnswer (button,answer) {
     })
 }   
 
+
+
 function previousQuestion() {
    if(q > 1) {
     q--;
@@ -170,6 +194,13 @@ function previousQuestion() {
     changeQuestion();
    }
 }
+
+
+
+
+
+
+
 
 
 
@@ -183,4 +214,3 @@ function finish() {
     console.log(score)
 
 }
-startQuiz();
