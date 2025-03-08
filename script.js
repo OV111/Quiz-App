@@ -105,7 +105,9 @@ let score = 0; // increment each correct answer
 const count = document.querySelector("#count");
 const timer = document.getElementById("timer");
 const question = document.getElementById("question");
+const previousBtn = document.querySelector(".previous");
 const nextBtn = document.querySelector(".next");
+
 
 const answers = document.querySelectorAll(".answers .btn");
 
@@ -113,7 +115,12 @@ function startQuiz() {
     // changeQuestion();
 }
 nextBtn.addEventListener("click", () => {
-    changeQuestion();
+    // if(answers.onclick() ){
+        changeQuestion();
+    // }    
+})
+previousBtn.addEventListener("click",() => {
+    previousQuestion()
 })
 
 
@@ -128,6 +135,7 @@ function changeQuestion() {
             button.innerHTML = currentQuestion.answers[i].text;
             button.style.backgroundColor = "";
             button.disabled = false;
+            
             button.onclick = () => checkAnswer(button,currentQuestion.answers[i]); //!111111111111111
         });
 
@@ -135,7 +143,7 @@ function changeQuestion() {
         ++q;
         ++c;
     } else {
-        finish()
+        finish();
         endQuiz();  //! define function 
     }
 }
@@ -146,7 +154,6 @@ function checkAnswer (button,answer) {
     if(answer.correct) {
         button.style.backgroundColor = "green";
         score++;
-        
     } else {
         // wrong
         button.style.backgroundColor = "red";
@@ -156,6 +163,13 @@ function checkAnswer (button,answer) {
     })
 }   
 
+function previousQuestion() {
+   if(q > 1) {
+    q--;
+    c--;
+    changeQuestion();
+   }
+}
 
 
 
