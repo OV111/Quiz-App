@@ -133,3 +133,43 @@ body {
 }
 
 /* ! Think about opening container */
+
+
+.endContainer {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 450px;
+    height: 200px;
+    margin: 200px 480px;
+    background-color: aliceblue;
+    gap: 10px;
+    border-radius: 8px;
+}
+.endContainer h2 {
+    font-size: 30px;
+    font-weight: 600;
+    text-shadow: 0 0 15px #5d5c5c;
+    padding-bottom: 10px;
+}
+.endContainer p {
+    font-size: 25px;
+    font-family: "Roboto", sans-serif;
+    text-shadow: 0 0 13px #494848;
+    padding-bottom: 13px;
+}
+.endContainer button {
+    font-size: 20px;
+    font-weight: 600;
+    width: 125px;
+    padding: 8px;
+    border: none;
+    border-radius: 6px;
+    background-color: #d6d6d6;
+    cursor:cell;
+}
+.endContainer button:hover {
+    transform: scale(1.03);
+    transition: 0.5s ease-in-out;
+}
