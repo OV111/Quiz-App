@@ -142,6 +142,17 @@ function startQuiz() {
     mainContainer.style.display = "block";
     changeQuestion();    
 }
+
+function previousQuestion() {
+   if(q > 1) {
+       q-=2;
+       c-=2;
+       changeQuestion();
+       finishBtn.style.display = "none";
+       nextBtn.style.display = "flex";
+    }
+   
+}
 function changeQuestion() {
     if(q < questions.length) {
         let currentQuestion = questions[q];
@@ -175,7 +186,8 @@ function changeQuestion() {
 
 function checkAnswer (button,answer) {
     // const correctAnswer = questions[q].answers.find(answer => answer.correct);
-    questions[q].chosenAnswer = answer;
+    // console.log(answer)
+    // questions[q].chosenAnswer = answer;
     if(answer.correct) {
         button.style.backgroundColor = "green";
         score++;
@@ -190,13 +202,6 @@ function checkAnswer (button,answer) {
 
 
 
-function previousQuestion() {
-   if(q > 1) {
-    q--;
-    c--;
-    changeQuestion();
-   }
-}
 
 
 
