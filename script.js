@@ -110,7 +110,7 @@ const questions = [
         chosenAnswer: null,
     },
 ];
-
+const scoreCount = document.getElementById("score");
 let score = 0; // increment each correct answer
 const count = document.querySelector("#count");
 const timer = document.getElementById("timer");
@@ -148,12 +148,13 @@ function changeQuestion() {
         answers.forEach((button,i) => {
             button.innerHTML = currentQuestion.answers[i].text;
             button.style.backgroundColor = "";
+            button.disabled = false;
 
-            if(currentQuestion.chosenAnswer !== null) {
+            // if(currentQuestion.chosenAnswer !== null) {
 
-                button.disabled = true;
-                if()
-            }
+            //     // button.disabled = true;
+            //     // if(){}
+            // }
             
             button.onclick = () => checkAnswer(button,currentQuestion.answers[i]); //!111111111111111
         });
@@ -162,7 +163,7 @@ function changeQuestion() {
         ++q;
         ++c;
     } else {
-        finish();
+        finishQuiz();
         endQuiz();  //! define function 
     }
 }
@@ -202,15 +203,26 @@ function previousQuestion() {
 
 
 
+const finishBtn = document.querySelector(".finish");
 
-
+const startContainer = document.querySelector(".startContainer")
+const mainContainer = document.querySelector(".container");
+const endContainer = document.querySelector(".endContainer");
 
 function endQuiz() {
-    if(q === 10) {
-        alert("No Way");
-    }
-}
-function finish() {
-    console.log(score)
 
+    scoreCount.innerHTML = score;
+    finishBtn.addEventListener("click", () => {
+        mainContainer.style.display = "none"
+        endContainer.style.display = "flex";
+
+    })
+}
+
+function finishQuiz() {
+    if(q === 10) {
+        nextBtn.style.display = "none";
+        previousBtn.style.display = "none";
+        finishBtn.style.display = "flex";
+    }
 }
