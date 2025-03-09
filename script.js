@@ -185,30 +185,11 @@ function changeQuestion() {
 }
 
 function checkAnswer (button,answer) {
-    // const correctAnswer = questions[q].answers.find(answer => answer.correct);
-    // console.log(answer)
-    // questions[q].chosenAnswer = answer;
-    if(answer.correct) {
-        button.style.backgroundColor = "green";
-        score++;
-    } else {
-        // wrong
-        button.style.backgroundColor = "red";
-    }
+    (answer.correct) ? (button.style.backgroundColor = "green",score++) : button.style.backgroundColor = "red";
     answers.forEach((btn) => {
         btn.disabled = true;
     })
 }   
-
-
-
-
-
-
-
-
-
-
 
 
 function endQuiz() {
