@@ -8,13 +8,13 @@ body {
     background-color: #001e4d;
 }
 .startContainer {
-    display: flex;
+    display: block;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 10px;
     width: 350px;
-    height: 200px;
+    height: 170px;
     background-color: aliceblue;
     margin: 200px 530px;
     border-radius: 8px;
@@ -22,17 +22,18 @@ body {
     box-shadow: 0 0 5cap #aca2a2;
 }
 .startContainer h2{
-    font-size: 30px;;
+    font-size: 30px;
     font-family: "Roboto", sans-serif;
     font-weight: 600;
     text-shadow: 0 0 16px #5d5c5c;
-    padding-bottom: 10px;
+    padding: 30px 55px;
 }
-.startContainer button {
+.startContainer .start {
     font-size: 20px;
     font-weight: 600;
     width: 125px;
     padding: 4px;
+    margin: 0px 110px 10px;
     border: none;
     margin-top: 10px;
     border-radius: 8px;
