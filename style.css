@@ -55,6 +55,7 @@ body {
     margin-top: 110px;
     background-color: aliceblue;
     box-shadow: 0 0 10px #aca2a2;
+    scroll-behavior: smooth;
 }
 .header {
     display: flex;
