@@ -31,11 +31,11 @@ body {
     padding: 30px 55px;
 }
 .startContainer .start {
-    width: 125px;
-    font-size: 20px;
+    width: 150px;
+    font-size: 24px;
     font-weight: 600;
-    padding: 4px;
-    margin: 0px 110px 10px;
+    padding: 6px;
+    margin: 0px 100px 10px;
     border: none;
     border-radius: 8px;
     background-color: #d6d6d6;
