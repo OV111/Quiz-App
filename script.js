@@ -171,8 +171,6 @@ function changeQuestion() {
                 checkAnswer(button,currentQuestion.answers[i]);
             };
         });
-        
-    
         count.innerHTML = `${c}/10`;
         ++q, ++c;
         
