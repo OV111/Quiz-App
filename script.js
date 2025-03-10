@@ -163,20 +163,18 @@ function changeQuestion() {
             
             button.onclick = () => {
                 let v = currentQuestion.answers[i];
-                checkAnswer(button,v); //!111111111111111
+                checkAnswer(button,v);
                 // console.log(v.correct)
-                return v.correct
+                
+                questions[q].chosenAnswer = v.correct
+             
+                
+                if(questions[q].chosenAnswer !== null && currentQuestion.answers[i].correct) {
+                    button.style.backgroundColor = "green";
+                    score++;
+                }
+                         
             }
-            
-            questions[q].chosenAnswer = button.onclick
-            console.log(questions[q].chosenAnswer)
-            // if(questions[q].chosenAnswer !== null) {
-            //     if(currentQuestion.answers[i].correct) {
-            //         console.log(questions[q].chosenAnswer)
-            //         button.style.backgroundColor = "green";
-            //         score++;
-            //     }
-            // }
         });
         
         count.innerHTML = `${c}/10`;
