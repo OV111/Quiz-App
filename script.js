@@ -194,4 +194,7 @@ function endQuiz() {
     mainContainer.style.display = "none";
     endContainer.style.display = "flex";
 }
+function reset() {
+    
+}
 init();
