@@ -172,7 +172,7 @@ function changeQuestion() {
             };
         });
         
-        
+    
         count.innerHTML = `${c}/10`;
         ++q, ++c;
         
@@ -187,7 +187,6 @@ function changeQuestion() {
 
 function checkAnswer (button,answer) {
     (answer.correct) ? (button.style.backgroundColor = "green",score++) : button.style.backgroundColor = "red";
-
     answers.forEach((btn) => {
         btn.disabled = true;
     });
