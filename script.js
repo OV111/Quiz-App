@@ -140,17 +140,19 @@ function init() {
 function startQuiz() {
     startContainer.style.display = "none";
     mainContainer.style.display = "block";
-    changeQuestion();    
+    changeQuestion();
 }
 
 function previousQuestion() {
-   if(q > 1) {
-       q-=2,c-=2;
-       changeQuestion();
-       finishBtn.style.display = "none";
-       nextBtn.style.display = "flex";
+    if(q > 1) {
+        q-=2, c-=2;
+        changeQuestion();
+        finishBtn.style.display = "none";
+        nextBtn.style.display = "flex";
+        
     }
 }
+
 function changeQuestion() {
     if(q < questions.length) {
         let currentQuestion = questions[q];
@@ -159,26 +161,21 @@ function changeQuestion() {
         answers.forEach((button,i) => {
             button.innerHTML = currentQuestion.answers[i].text;
             button.style.backgroundColor = "";
-            button.disabled = false;         
+            button.disabled = false;  
             
+            // if(currentQuestion.chosenAnswer !== null && currentQuestion.chosenAnswer === i) {
+            //      button.style.backgroundColor = currentQuestion.answers[i].correct ? "green" : "red";
+            // }
+
             button.onclick = () => {
                 let v = currentQuestion.answers[i];
                 checkAnswer(button,v);
-                // console.log(v.correct)
-                
-                questions[q].chosenAnswer = v.correct
-             
-                
-                if(questions[q].chosenAnswer !== null && currentQuestion.answers[i].correct) {
-                    button.style.backgroundColor = "green";
-                    score++;
-                }
-                         
-            }
+
+            };
         });
         
         count.innerHTML = `${c}/10`;
-        ++q,++c;
+        ++q, ++c;
         
         if(q === questions.length) {
             nextBtn.style.display = "none";
