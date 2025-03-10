@@ -110,7 +110,6 @@ const questions = [
         chosenAnswer: null,
     },
 ];
-
 const startBtn = document.querySelector(".start");
 const finishBtn = document.querySelector(".finish");
 
@@ -127,7 +126,7 @@ const answers = document.querySelectorAll(".answers .btn");
 const previousBtn = document.querySelector(".previous");
 const nextBtn = document.querySelector(".next");
 
-let score = 0; // increment each correct answer
+let score = 0;
 let q = 0;
 let c = 1;
 
@@ -149,8 +148,7 @@ function previousQuestion() {
         changeQuestion();
         finishBtn.style.display = "none";
         nextBtn.style.display = "flex";
-        
-    }
+    }   
 }
 
 function changeQuestion() {
@@ -161,18 +159,19 @@ function changeQuestion() {
         answers.forEach((button,i) => {
             button.innerHTML = currentQuestion.answers[i].text;
             button.style.backgroundColor = "";
-            button.disabled = false;  
-            
-            // if(currentQuestion.chosenAnswer !== null && currentQuestion.chosenAnswer === i) {
-            //      button.style.backgroundColor = currentQuestion.answers[i].correct ? "green" : "red";
-            // }
-
+            button.disabled = false;
+            if(currentQuestion.chosenAnswer !== null){
+                button.disabled = true;
+                if(currentQuestion.chosenAnswer === i) {
+                    button.style.backgroundColor = currentQuestion.answers[i].correct ? "green" : "red";
+                }
+            }
             button.onclick = () => {
-                let v = currentQuestion.answers[i];
-                checkAnswer(button,v);
-
+                currentQuestion.chosenAnswer = i;
+                checkAnswer(button,currentQuestion.answers[i]);
             };
         });
+        
         
         count.innerHTML = `${c}/10`;
         ++q, ++c;
@@ -188,13 +187,14 @@ function changeQuestion() {
 
 function checkAnswer (button,answer) {
     (answer.correct) ? (button.style.backgroundColor = "green",score++) : button.style.backgroundColor = "red";
+
     answers.forEach((btn) => {
         btn.disabled = true;
-    })
+    });
 }   
 function endQuiz() {
     scoreCount.innerHTML = score;
-    mainContainer.style.display = "none"
+    mainContainer.style.display = "none";
     endContainer.style.display = "flex";
 }
 init();
