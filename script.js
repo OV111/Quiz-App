@@ -145,13 +145,11 @@ function startQuiz() {
 
 function previousQuestion() {
    if(q > 1) {
-       q-=2;
-       c-=2;
+       q-=2,c-=2;
        changeQuestion();
        finishBtn.style.display = "none";
        nextBtn.style.display = "flex";
     }
-   
 }
 function changeQuestion() {
     if(q < questions.length) {
@@ -161,26 +159,35 @@ function changeQuestion() {
         answers.forEach((button,i) => {
             button.innerHTML = currentQuestion.answers[i].text;
             button.style.backgroundColor = "";
-            button.disabled = false;
-
-            // if(currentQuestion.chosenAnswer !== null) {
-            //     // button.disabled = true;
-            //     // if(){}
-            // }
+            button.disabled = false;         
             
-            button.onclick = () => checkAnswer(button,currentQuestion.answers[i]); //!111111111111111
+            button.onclick = () => {
+                let v = currentQuestion.answers[i];
+                checkAnswer(button,v); //!111111111111111
+                // console.log(v.correct)
+                return v.correct
+            }
+            
+            questions[q].chosenAnswer = button.onclick
+            console.log(questions[q].chosenAnswer)
+            // if(questions[q].chosenAnswer !== null) {
+            //     if(currentQuestion.answers[i].correct) {
+            //         console.log(questions[q].chosenAnswer)
+            //         button.style.backgroundColor = "green";
+            //         score++;
+            //     }
+            // }
         });
-
+        
         count.innerHTML = `${c}/10`;
-        ++q;
-        ++c;
-
+        ++q,++c;
+        
         if(q === questions.length) {
             nextBtn.style.display = "none";
             finishBtn.style.display = "flex";
         }
     } else {
-        endQuiz();  //! define function 
+        endQuiz(); 
     }
 }
 
@@ -190,12 +197,9 @@ function checkAnswer (button,answer) {
         btn.disabled = true;
     })
 }   
-
-
 function endQuiz() {
     scoreCount.innerHTML = score;
     mainContainer.style.display = "none"
     endContainer.style.display = "flex";
 }
-
 init();
