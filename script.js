@@ -143,7 +143,6 @@ function startQuiz() {
     mainContainer.style.display = "block";
     changeQuestion();
 }
-
 function previousQuestion() {
     if(q > 1) {
         q-=2, c-=2;
@@ -152,10 +151,9 @@ function previousQuestion() {
         nextBtn.style.display = "flex";
     }   
 }
-
 function changeQuestion() {
     if(q < questions.length) {
-        let currentQuestion = questions[q];
+        const currentQuestion = questions[q];
         question.innerHTML = `${currentQuestion.number}.${currentQuestion.question}`;
         
         answers.forEach((button,i) => {
@@ -197,6 +195,12 @@ function endQuiz() {
     endContainer.style.display = "flex";
 }
 function reset() {
-    
+    score = 0, q = 0, c = 1;
+    questions.forEach((v) => v.chosenAnswer = null);
+    endContainer.style.display = "none";
+    startContainer.style.display = "flex";
+    finishBtn.style.display = "none";
+    nextBtn.style.display = "flex";
 }
+
 init();
