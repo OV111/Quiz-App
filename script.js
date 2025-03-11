@@ -125,6 +125,7 @@ const question = document.getElementById("question");
 const answers = document.querySelectorAll(".answers .btn");
 const previousBtn = document.querySelector(".previous");
 const nextBtn = document.querySelector(".next");
+const resetBtn = document.querySelector(".reset");
 
 let score = 0;
 let q = 0;
