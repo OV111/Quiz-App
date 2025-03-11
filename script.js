@@ -136,6 +136,7 @@ function init() {
     nextBtn.addEventListener("click", changeQuestion);
     previousBtn.addEventListener("click", previousQuestion);
     finishBtn.addEventListener("click", endQuiz);
+    resetBtn.addEventListener("click",reset);
 }
 function startQuiz() {
     startContainer.style.display = "none";
