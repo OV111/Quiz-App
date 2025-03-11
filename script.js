@@ -3,8 +3,8 @@ const questions = [
         number: "1",
         question: "Which data structure follows the First In, First Out (FIFO) principle?",
         answers: [
-            {text:"Stack",correct: true},
-            {text:"Queue",correct: false},
+            {text:"Stack",correct: false},
+            {text:"Queue",correct: true},
             {text:"Linked List",correct: false},
             {text:"Hash Table",correct: false},
         ],
@@ -112,6 +112,7 @@ const questions = [
 ];
 const startBtn = document.querySelector(".start");
 const finishBtn = document.querySelector(".finish");
+const resetBtn = document.querySelector(".reset");
 
 const startContainer = document.querySelector(".startContainer");
 const mainContainer = document.querySelector(".container");
@@ -120,12 +121,12 @@ const endContainer = document.querySelector(".endContainer");
 const scoreCount = document.getElementById("score");
 const count = document.getElementById("count");
 const timer = document.getElementById("timer");
+let timerText = document.getElementById("timertext");
 
 const question = document.getElementById("question");
 const answers = document.querySelectorAll(".answers .btn");
 const previousBtn = document.querySelector(".previous");
 const nextBtn = document.querySelector(".next");
-const resetBtn = document.querySelector(".reset");
 
 let score = 0;
 let q = 0;
@@ -142,6 +143,7 @@ function startQuiz() {
     startContainer.style.display = "none";
     mainContainer.style.display = "block";
     changeQuestion();
+    startTimer();
 }
 function previousQuestion() {
     if(q > 1) {
@@ -193,6 +195,7 @@ function endQuiz() {
     scoreCount.innerHTML = score;
     mainContainer.style.display = "none";
     endContainer.style.display = "flex";
+    timerText = timer.textContent;
 }
 function reset() {
     score = 0, q = 0, c = 1;
@@ -201,6 +204,26 @@ function reset() {
     startContainer.style.display = "flex";
     finishBtn.style.display = "none";
     nextBtn.style.display = "flex";
+    startTimer();
 }
+
+
+function startTimer() {
+    let minutes = 0;
+    let seconds = 0;
+    clearInterval()
+    setInterval(() => {
+        seconds++;
+        if(seconds === 60) {
+            seconds = 0;
+            minutes++;
+        }
+        timer.textContent = `${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`;
+        // console.log(y)
+    },1000);
+    timerText = timer.textContent;
+}
+
+
 
 init();
