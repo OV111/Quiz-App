@@ -208,7 +208,7 @@ function reset() {
     finishBtn.style.display = "none";
     nextBtn.style.display = "flex";    
     seconds = 0;
-    minutes = 0
+    minutes = 0;
     clearInterval(IntervalId);
 }
 
