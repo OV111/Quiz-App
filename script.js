@@ -178,7 +178,6 @@ function changeQuestion() {
         });
         count.innerHTML = `${currentCount}/10`;
         ++currentQuestionIndex, ++currentCount;
-        
         if(currentQuestionIndex === questions.length) {
             nextBtn.style.display = "none";
             finishBtn.style.display = "flex";
