@@ -121,7 +121,7 @@ const endContainer = document.querySelector(".endContainer");
 const scoreCount = document.getElementById("score");
 const count = document.getElementById("count");
 const timer = document.getElementById("timer");
-let timerText = document.getElementById("timertext");
+let timerText = document.getElementById("timerText");
 
 const question = document.getElementById("question");
 const answers = document.querySelectorAll(".answers .btn");
@@ -131,6 +131,9 @@ const nextBtn = document.querySelector(".next");
 let score = 0;
 let q = 0;
 let c = 1;
+let IntervalId;
+let minutes = 0;
+let seconds = 0;
 
 function init() {
     startBtn.addEventListener("click", startQuiz);
@@ -142,8 +145,8 @@ function init() {
 function startQuiz() {
     startContainer.style.display = "none";
     mainContainer.style.display = "block";
+    startTimer();                              //!/vghuyhghjuytrfdcfg
     changeQuestion();
-    startTimer();
 }
 function previousQuestion() {
     if(q > 1) {
@@ -195,7 +198,7 @@ function endQuiz() {
     scoreCount.innerHTML = score;
     mainContainer.style.display = "none";
     endContainer.style.display = "flex";
-    timerText = timer.textContent;
+    clearInterval(IntervalId);
 }
 function reset() {
     score = 0, q = 0, c = 1;
@@ -203,27 +206,25 @@ function reset() {
     endContainer.style.display = "none";
     startContainer.style.display = "flex";
     finishBtn.style.display = "none";
-    nextBtn.style.display = "flex";
-    startTimer();
+    nextBtn.style.display = "flex";    
+    seconds = 0;
+    minutes = 0
+    clearInterval(IntervalId);
 }
 
-
 function startTimer() {
-    let minutes = 0;
-    let seconds = 0;
-    clearInterval()
-    setInterval(() => {
+    seconds = 0;
+    minutes = 0;
+
+    IntervalId = setInterval(() => {
         seconds++;
         if(seconds === 60) {
             seconds = 0;
             minutes++;
         }
         timer.textContent = `${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`;
-        // console.log(y)
-    },1000);
-    timerText = timer.textContent;
+        timerText.textContent = timer.textContent
+    }, 1000);
 }
-
-
 
 init();
