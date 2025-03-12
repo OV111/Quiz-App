@@ -129,9 +129,9 @@ const previousBtn = document.querySelector(".previous");
 const nextBtn = document.querySelector(".next");
 
 let score = 0;
-let q = 0;
-let c = 1;
-let IntervalId;
+let currentQuestionIndex = 0;
+let currentCount = 1;
+let quizTimer;
 let minutes = 0;
 let seconds = 0;
 
@@ -149,16 +149,16 @@ function startQuiz() {
     changeQuestion();
 }
 function previousQuestion() {
-    if(q > 1) {
-        q-=2, c-=2;
+    if(currentQuestionIndex > 1) {
+        currentQuestionIndex-=2, currentCount-=2;
         changeQuestion();
         finishBtn.style.display = "none";
         nextBtn.style.display = "flex";
     }   
 }
 function changeQuestion() {
-    if(q < questions.length) {
-        const currentQuestion = questions[q];
+    if(currentQuestionIndex < questions.length) {
+        const currentQuestion = questions[currentQuestionIndex];
         question.innerHTML = `${currentQuestion.number}.${currentQuestion.question}`;
         
         answers.forEach((button,i) => {
@@ -176,10 +176,10 @@ function changeQuestion() {
                 checkAnswer(button,currentQuestion.answers[i]);
             };
         });
-        count.innerHTML = `${c}/10`;
-        ++q, ++c;
+        count.innerHTML = `${currentCount}/10`;
+        ++currentQuestionIndex, ++currentCount;
         
-        if(q === questions.length) {
+        if(currentQuestionIndex === questions.length) {
             nextBtn.style.display = "none";
             finishBtn.style.display = "flex";
         }
@@ -198,10 +198,10 @@ function endQuiz() {
     scoreCount.innerHTML = score;
     mainContainer.style.display = "none";
     endContainer.style.display = "flex";
-    clearInterval(IntervalId);
+    clearInterval(quizTimer);
 }
 function reset() {
-    score = 0, q = 0, c = 1;
+    score = 0, currentQuestionIndex = 0, currentCount = 1;
     questions.forEach((v) => v.chosenAnswer = null);
     endContainer.style.display = "none";
     startContainer.style.display = "flex";
@@ -212,11 +212,11 @@ function reset() {
 }
 
 function startTimer() {
-    clearInterval(IntervalId);
+    clearInterval(quizTimer);
     seconds = 0;
     minutes = 0;
 
-    IntervalId = setInterval(() => {
+    quizTimer = setInterval(() => {
         seconds++;
         if(seconds === 60) {
             seconds = 0;
