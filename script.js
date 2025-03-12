@@ -145,7 +145,7 @@ function init() {
 function startQuiz() {
     startContainer.style.display = "none";
     mainContainer.style.display = "block";
-    startTimer();                              //!/vghuyhghjuytrfdcfg
+    startTimer();
     changeQuestion();
 }
 function previousQuestion() {
