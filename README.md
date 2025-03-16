@@ -1,5 +1,5 @@
 # Quiz-App
-    Quiz App is a lightweight and interactive web-based quiz application that presents multiple-choice questions to users. The app keeps track of scores, allows navigation between questions, and includes a timer. Built using modern JavaScript features, it provides a smooth and engaging user experience.🔍📊  
+Quiz App is a lightweight and interactive web-based quiz application that presents multiple-choice questions to users. The app keeps track of scores, allows navigation between questions, and includes a timer. Built using modern JavaScript features, it provides a smooth and engaging user experience.🔍📊  
 ## Features and Technologies
 - **Html, Css , JavaScript**
 - **10 Multiple-choice Questions with correct answer tracking with timer**
