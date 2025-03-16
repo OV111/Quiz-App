@@ -209,11 +209,14 @@ body {
     transition: 0.5s ease-in-out;
 }
 /* Responsive side */
-@media (max-width: 10240x) {
-    .container {
-        width: 500px;
-        height: 450px;
+@media (max-width: 1024px) {
+    .startContainer {
         margin-left: 350px;
+    }
+    .container {
+        width: 570px;
+        height: 450px;
+        margin-left: 250px;
         margin-top: 110px;
     }
     .header p {
@@ -233,5 +236,8 @@ body {
         height: 70px;
         margin-top: 35px;
     }
-    
+    .endContainer {
+        width: 400px;
+        margin-left: 350px;
+    }
 }
