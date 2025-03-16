@@ -186,7 +186,6 @@ function changeQuestion() {
         endQuiz(); 
     }
 }
-
 function checkAnswer (button,answer) {
     (answer.correct) ? (button.style.backgroundColor = "green",score++) : button.style.backgroundColor = "red";
     answers.forEach((btn) => {
@@ -209,7 +208,6 @@ function reset() {
     seconds = 0;
     minutes = 0;
 }
-
 function startTimer() {
     clearInterval(quizTimer);
     seconds = 0;
