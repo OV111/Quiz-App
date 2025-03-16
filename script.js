@@ -121,7 +121,7 @@ const endContainer = document.querySelector(".endContainer");
 const scoreCount = document.getElementById("score");
 const count = document.getElementById("count");
 const timer = document.getElementById("timer");
-let timerText = document.getElementById("timerText");
+const timerText = document.getElementById("timerText");
 
 const question = document.getElementById("question");
 const answers = document.querySelectorAll(".answers .btn");
@@ -135,20 +135,20 @@ let quizTimer;
 let minutes = 0;
 let seconds = 0;
 
-function init() {
+const init = () => {
     startBtn.addEventListener("click", startQuiz);
     nextBtn.addEventListener("click", changeQuestion);
     previousBtn.addEventListener("click", previousQuestion);
     finishBtn.addEventListener("click", endQuiz);
     resetBtn.addEventListener("click",reset);
 }
-function startQuiz() {
+const startQuiz = () => {
     startContainer.style.display = "none";
     mainContainer.style.display = "block";
     startTimer();
     changeQuestion();
 }
-function previousQuestion() {
+const previousQuestion = () => {
     if(currentQuestionIndex > 1) {
         currentQuestionIndex-=2, currentCount-=2;
         changeQuestion();
@@ -156,7 +156,7 @@ function previousQuestion() {
         nextBtn.style.display = "flex";
     }   
 }
-function changeQuestion() {
+const changeQuestion = () => {
     if(currentQuestionIndex < questions.length) {
         const currentQuestion = questions[currentQuestionIndex];
         question.innerHTML = `${currentQuestion.number}.${currentQuestion.question}`;
@@ -186,19 +186,19 @@ function changeQuestion() {
         endQuiz(); 
     }
 }
-function checkAnswer (button,answer) {
+const checkAnswer = (button,answer) => {
     (answer.correct) ? (button.style.backgroundColor = "green",score++) : button.style.backgroundColor = "red";
     answers.forEach((btn) => {
         btn.disabled = true;
     });
 }   
-function endQuiz() {
+const endQuiz = () => {
     scoreCount.innerHTML = score;
     mainContainer.style.display = "none";
     endContainer.style.display = "flex";
     clearInterval(quizTimer);
 }
-function reset() {
+const reset = () => {
     score = 0, currentQuestionIndex = 0, currentCount = 1;
     questions.forEach((v) => v.chosenAnswer = null);
     endContainer.style.display = "none";
@@ -208,7 +208,7 @@ function reset() {
     seconds = 0;
     minutes = 0;
 }
-function startTimer() {
+const startTimer = () => {
     clearInterval(quizTimer);
     seconds = 0;
     minutes = 0;
