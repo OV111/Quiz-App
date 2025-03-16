@@ -241,3 +241,14 @@ body {
         margin-left: 350px;
     }
 }
+@media (max-width: 768px) {
+    .startContainer {
+        margin-left: 250px;
+    }
+    .container {
+        margin-left: 130px;
+    }
+    .endContainer {
+        margin-left: 200px;
+    }
+}
